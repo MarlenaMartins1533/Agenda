@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <Button
+            android:id="@+id/add_contatoTXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar Contato"
+            android:textStyle="bold"
+            android:padding="30dp"
+            tools:layout_editor_absoluteY="103dp"
+            tools:layout_editor_absoluteX="90dp"/>
+
+    <Button
+            android:id="@+id/ver_contatosTXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver Contato"
+            android:textStyle="bold"
+            android:padding="30dp"
+            tools:layout_editor_absoluteY="195dp"
+            tools:layout_editor_absoluteX="114dp"/>
+
+</android.support.constraint.ConstraintLayout>
