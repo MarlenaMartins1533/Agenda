@@ -12,21 +12,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        add_contatoTXT.setOnClickListener {
-            addContato()
+        add_contato_pageTXT.setOnClickListener {
+            //vai para
         }
         ver_contatosTXT.setOnClickListener {
             verContato()
         }
     }
 
-    private fun addContato () {
-        val intent = Intent(this, AddContatoActivity::class.java)
-        startActivity(intent)
-
-    }
     private fun verContato () {
-     //   val intent = Intent(this, VerContatoActivity::class.java)
+     // tem que mostrar a lista
+        val intent = Intent(this, ContatoListActivity::class.java)
         startActivity(intent)
 
     }

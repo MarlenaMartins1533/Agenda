@@ -28,6 +28,6 @@ class ContatoListActivity : AppCompatActivity() {
                 Contato(
                     "Flavio",
                     "99948-4822"
-                )
+                ))
     }
 }
