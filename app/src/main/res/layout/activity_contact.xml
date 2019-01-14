@@ -14,14 +14,14 @@
             android:orientation="vertical" >
 
         <TextView
-                android:id="@+id/contato_nomeTXT"
+                android:id="@+id/contact_nameTXT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
                 tools:text="Nome"/>
 
         <TextView
-                android:id="@+id/contato_telefoneTXT"
+                android:id="@+id/contact_phoneTXT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
