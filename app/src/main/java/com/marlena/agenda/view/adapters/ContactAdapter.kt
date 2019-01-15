@@ -1,4 +1,4 @@
-package com.marlena.agenda
+package com.marlena.agenda.view.adapters
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.marlena.agenda.R
+import com.marlena.agenda.model.Contact
 import kotlinx.android.synthetic.main.activity_contact.view.*
 
 

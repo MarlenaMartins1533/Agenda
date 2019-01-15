@@ -1,4 +1,4 @@
-package com.marlena.agenda
+package com.marlena.agenda.model
 
 import java.io.Serializable
 
