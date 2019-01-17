@@ -3,8 +3,8 @@ package com.marlena.agenda.model
 import java.io.Serializable
 
 data class Contact (val name:String,
-                    val phone:String): Serializable{
+                    val phone:String,
+                    val age: String): Serializable{
 
-    var age: Int? = null
-    var surname: String? = null
+    var surname: String? = "EMPTY" // Valor zerado para demonstração
 }

@@ -18,7 +18,8 @@ class AddContactActivity : AppCompatActivity() {
         add_contactBTN.setOnClickListener {
             val name = name_contactEDT.text.toString()
             val phone = phone_contactEDT.text.toString()
-            val contact = Contact(name, phone)
+            val age = "EMPTY"
+            val contact = Contact(name, phone, age) //Inserido o valor vazio forçado
 
             Toast.makeText(this, contact.name, Toast.LENGTH_LONG).show()
 

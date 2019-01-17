@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
+        android:id="@+id/itemCV"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -17,15 +18,30 @@
                 android:id="@+id/contact_nameTXT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30dp"
-                tools:text="Nome"/>
+                android:textSize="30sp"
+                tools:text="@string/name"/>
 
         <TextView
                 android:id="@+id/contact_phoneTXT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                tools:text="Telefone"/>
+                android:textSize="20sp"
+                tools:text="@string/phone"/>
+
+        <TextView
+                android:id="@+id/contact_ageTXT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                tools:text="@string/age"/>
+
+        <TextView
+                android:id="@+id/contact_surnameTXT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                tools:text="@string/surname"/>
+
 
     </LinearLayout>
 

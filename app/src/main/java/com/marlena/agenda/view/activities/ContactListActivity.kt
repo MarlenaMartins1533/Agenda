@@ -3,6 +3,7 @@ package com.marlena.agenda.view.activities
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import com.marlena.agenda.view.adapters.ContactAdapter
 import com.marlena.agenda.R
 import com.marlena.agenda.data.Cache
@@ -35,7 +36,6 @@ class ContactListActivity : AppCompatActivity() {
         val contact_list = Cache.contactList
 
         contact_list?.let { contactList.addAll(it) }
-
         adapter?.notifyDataSetChanged()
     }
 
