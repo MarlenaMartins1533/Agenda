@@ -38,8 +38,10 @@ class ContactAdapter (private val contacts: List<Contact>,
             val surname = itemView.contact_surnameTXT
 
             itemView.itemCV.setOnClickListener {
-                itemView.contact_ageTXT.visibility = View.GONE
-                itemView.contact_surnameTXT.visibility = View.GONE
+                age.text = contact.age
+                surname.text = contact.surname
+                itemView.contact_ageTXT.visibility = View.VISIBLE
+                itemView.contact_surnameTXT.visibility = View.VISIBLE
             }
 
  //           itemView.contact_nameTXT.visibility = View.VISIBLE
@@ -48,8 +50,8 @@ class ContactAdapter (private val contacts: List<Contact>,
 
             name.text = contact.name
             phone.text = contact.phone
-            age.text = contact.age
-            surname.text = contact.surname
+            itemView.contact_ageTXT.visibility = View.GONE
+            itemView.contact_surnameTXT.visibility = View.GONE
         }
     }
 }
