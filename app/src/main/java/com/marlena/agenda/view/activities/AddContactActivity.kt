@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.marlena.agenda.R
 import com.marlena.agenda.model.Contact
+import com.marlena.agenda.persistence.AgendaDB
 import kotlinx.android.synthetic.main.activity_add_contact.*
 
 class AddContactActivity : AppCompatActivity() {
@@ -16,25 +17,29 @@ class AddContactActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_contact)
 
         add_contactBTN.setOnClickListener {
-            val name = name_contactEDT.text.toString()
-            val phone = phone_contactEDT.text.toString()
-            val contact = Contact(name, phone) //Inserido o valor vazio forçado
+            val contact = Contact() //Inserido o valor vazio forçado
+            contact.name = name_contactEDT.text.toString()
+            contact.phone = phone_contactEDT.text.toString()
+
+            AgendaDB.instance.contactDAO().insert(contact)
 
             Toast.makeText(this, contact.name, Toast.LENGTH_LONG).show()
 
-            goToMainActivity(contact)
+//            goToMainActivity(contact)
+            finish()
         }
     }
 
-    private fun goToMainActivity (contact: Contact){
+//    private fun goToMainActivity (contact: Contact){
 //        val intent = Intent(this, MainActivity::class.java)
 //        intent.putExtra(MainActivity.CONTACTLIST_ARG, contact)
 //        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 //        startActivity(intent)
-
-        val intent = Intent()
-        intent.putExtra(MainActivity.CONTACT_ARG, contact)
-        setResult(Activity.RESULT_OK, intent)
-        finish()
-    }
+//
+//        val intent = Intent()
+//        intent.putExtra(MainActivity.CONTACT_ARG, contact)
+//        setResult(Activity.RESULT_OK, intent)
+//
+//        finish()
+//    }
 }

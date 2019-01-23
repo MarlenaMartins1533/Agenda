@@ -3,18 +3,18 @@ package com.marlena.agenda.view.activities
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.GridLayoutManager
 import com.marlena.agenda.view.adapters.ContactAdapter
 import com.marlena.agenda.R
 import com.marlena.agenda.data.Cache
 import com.marlena.agenda.model.Contact
+import com.marlena.agenda.persistence.AgendaDB
 import kotlinx.android.synthetic.main.activity_contact_list.*
 
 class ContactListActivity : AppCompatActivity() {
 
-    companion object {
-        const val CONTACTLIST_ARG = "contactlist_arg"
-    }
+//    companion object {
+//        const val CONTACTLIST_ARG = "contactlist_arg"
+//    }
 
     private val contactList = ArrayList<Contact>()
     private var adapter: ContactAdapter? = null
@@ -29,15 +29,23 @@ class ContactListActivity : AppCompatActivity() {
         contato_list_recyclerview?.layoutManager = layoutManager
         contato_list_recyclerview.adapter = adapter
 
-        getArgs()
+        updateList()
+//        getArgs()
     }
 
-    private fun getArgs() {
-        val contact_list = Cache.contactList
-
-        contact_list?.let { contactList.addAll(it) }
-        adapter?.notifyDataSetChanged()
+    private fun updateList(){
+        AgendaDB.instance.contactDAO().getContacts()?.let {
+            contactList.addAll(it)
+            adapter?.notifyDataSetChanged()
+        }
     }
+
+//    private fun getArgs() {
+//        val contact_list = Cache.contactList
+//
+//        contact_list?.let { contactList.addAll(it) }
+//        adapter?.notifyDataSetChanged()
+//    }
 
 //    private fun getContacts(): List<Contact>{
 //        return listOf(

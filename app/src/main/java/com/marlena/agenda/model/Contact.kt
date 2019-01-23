@@ -1,10 +1,23 @@
 package com.marlena.agenda.model
 
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
 import java.io.Serializable
 
-data class Contact (val name:String,
-                    val phone:String): Serializable{
+@Entity(tableName = "contact")
+class Contact: Serializable{
 
-    var age: String? = "Age"
-    var surname: String? = "Surname" // Valor zerado para demonstração
+    @PrimaryKey @ColumnInfo(name = "phone")
+    var phone:String = ""
+    @ColumnInfo(name = "name")
+    var name:String = ""
+    @ColumnInfo(name = "age")
+    var age: String = ""
+    @ColumnInfo(name = "surname")
+    var surname: String = ""
+
+    fun getCompleteName(): String {
+        return name + surname
+    }
 }

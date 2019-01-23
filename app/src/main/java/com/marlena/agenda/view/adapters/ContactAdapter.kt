@@ -44,10 +44,6 @@ class ContactAdapter (private val contacts: List<Contact>,
                 itemView.contact_surnameTXT.visibility = View.VISIBLE
             }
 
- //           itemView.contact_nameTXT.visibility = View.VISIBLE
- //           itemView.contact_nameTXT.visibility = View.INVISIBLE
- //           itemView.contact_nameTXT.visibility = View.GONE
-
             name.text = contact.name
             phone.text = contact.phone
             itemView.contact_ageTXT.visibility = View.GONE
