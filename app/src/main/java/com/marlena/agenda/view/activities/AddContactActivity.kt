@@ -1,7 +1,5 @@
 package com.marlena.agenda.view.activities
 
-import android.app.Activity
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -17,9 +15,11 @@ class AddContactActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_contact)
 
         add_contactBTN.setOnClickListener {
-            val contact = Contact() //Inserido o valor vazio forçado
+            val contact = Contact()
             contact.name = name_contactEDT.text.toString()
             contact.phone = phone_contactEDT.text.toString()
+            contact.age = age_contactEDT.text.toString()
+            contact.surname = surname_contactEDT.text.toString()
 
             AgendaDB.instance.contactDAO().insert(contact)
 

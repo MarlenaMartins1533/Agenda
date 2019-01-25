@@ -1,5 +1,6 @@
 package com.marlena.agenda.view.activities
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -8,9 +9,10 @@ import com.marlena.agenda.R
 import com.marlena.agenda.data.Cache
 import com.marlena.agenda.model.Contact
 import com.marlena.agenda.persistence.AgendaDB
+import com.marlena.agenda.view.adapters.ContactInterface
 import kotlinx.android.synthetic.main.activity_contact_list.*
 
-class ContactListActivity : AppCompatActivity() {
+class ContactListActivity : AppCompatActivity(), ContactInterface.View {
 
 //    companion object {
 //        const val CONTACTLIST_ARG = "contactlist_arg"
@@ -33,11 +35,27 @@ class ContactListActivity : AppCompatActivity() {
 //        getArgs()
     }
 
+    override fun removeContact(position: Int){
+        AgendaDB.instance.contactDAO().delete(contactList[position])
+        contactList.removeAt(position)
+        adapter?.notifyDataSetChanged()
+    }
+
+    override fun getContext(): Context {
+        return this
+    }
+
     private fun updateList(){
         AgendaDB.instance.contactDAO().getContacts()?.let {
             contactList.addAll(it)
             adapter?.notifyDataSetChanged()
         }
+
+//        private fun updateList(){
+//            AgendaDB.instance.contactDAO().getContacts()?.let {
+//                contactList.addAll(it)
+//                adapter?.notifyDataSetChanged()
+//            }
     }
 
 //    private fun getArgs() {

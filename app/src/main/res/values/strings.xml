@@ -6,5 +6,7 @@
     <string name="age">Idade</string>
     <string name="surname">Sobrenome</string>
     <string name="empty">EMPTY</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Excluir</string>
     <string name="contact_fragment">Informações do Contato</string>
 </resources>

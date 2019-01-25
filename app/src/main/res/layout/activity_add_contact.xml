@@ -28,8 +28,7 @@
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:textColor="#6bfff7"
-                android:textColorHint="#52afaa"
-                android:textAlignment="center"/>
+                android:textColorHint="#52afaa"/>
 
         <EditText
                 android:id="@+id/phone_contactEDT"
@@ -39,15 +38,35 @@
                 android:importantForAutofill="no"
                 android:inputType="phone"
                 android:textColor="#6bfff7"
-                android:textColorHint="#52afaa"
-                android:textAlignment="center"/>
+                android:textColorHint="#52afaa"/>
+
+        <EditText
+                android:id="@+id/age_contactEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/age"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:textColor="#6bfff7"
+                android:textColorHint="#52afaa"/>
+
+        <EditText
+                android:id="@+id/surname_contactEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/surname"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:textColor="#6bfff7"
+                android:textColorHint="#52afaa"/>
 
         <Button
                 android:id="@+id/add_contactBTN"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/add_contact"
                 android:layout_marginTop="25dp"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"/>
 
 </LinearLayout>

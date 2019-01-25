@@ -5,8 +5,34 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_margin="5dp"
         android:maxHeight="250dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_margin="5dp">
+
+        <Button
+                android:id="@+id/edit_contactBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit"
+                android:visibility="gone"
+                style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+                android:id="@+id/delete_contactBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete"
+                android:visibility="gone"
+                style="?android:attr/buttonBarButtonStyle" />
+
+    </LinearLayout>
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -33,14 +59,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                tools:text="@string/age"/>
+                tools:text="@string/age"
+                android:visibility="gone"/>
 
         <TextView
                 android:id="@+id/contact_surnameTXT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                tools:text="@string/surname"/>
+                tools:text="@string/surname"
+                android:visibility="gone"/>
 
 
     </LinearLayout>
