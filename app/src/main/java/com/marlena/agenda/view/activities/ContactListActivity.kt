@@ -1,6 +1,7 @@
 package com.marlena.agenda.view.activities
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -31,14 +32,23 @@ class ContactListActivity : AppCompatActivity(), ContactInterface.View {
         contato_list_recyclerview?.layoutManager = layoutManager
         contato_list_recyclerview.adapter = adapter
 
-        updateList()
 //        getArgs()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateList()
     }
 
     override fun removeContact(position: Int){
         AgendaDB.instance.contactDAO().delete(contactList[position])
         contactList.removeAt(position)
         adapter?.notifyDataSetChanged()
+    }
+    override fun editContact(position: Int){
+        val intent = Intent(this, AddContactActivity::class.java)
+        intent.putExtra(AddContactActivity.OLDCONTACT_ARG, contactList[position])
+        startActivity(intent)
     }
 
     override fun getContext(): Context {
@@ -47,6 +57,7 @@ class ContactListActivity : AppCompatActivity(), ContactInterface.View {
 
     private fun updateList(){
         AgendaDB.instance.contactDAO().getContacts()?.let {
+            contactList.clear()
             contactList.addAll(it)
             adapter?.notifyDataSetChanged()
         }

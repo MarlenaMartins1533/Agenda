@@ -43,6 +43,10 @@ class ContactAdapter (private val contacts: List<Contact>,
                 contactView.removeContact(position)
             }
 
+            itemView.edit_contactBTN.setOnClickListener{
+                contactView.editContact(position)
+            }
+
             itemView.itemCV.setOnClickListener {
                 if (!contact.seeDetais) {
                     itemView.contact_ageTXT.visibility = View.VISIBLE
