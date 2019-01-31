@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">Agenda</string>
+    <string name="app_name">agenda</string>
+    <string name="add_contact">Adicionar Contato</string>
+    <string name="name">Nome</string>
+    <string name="phone">Telefone</string>
+    <string name="age">Idade</string>
+    <string name="surname">Sobrenome</string>
+    <string name="empty">EMPTY</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Excluir</string>
+    <string name="contact_fragment">Informações do Contato</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
