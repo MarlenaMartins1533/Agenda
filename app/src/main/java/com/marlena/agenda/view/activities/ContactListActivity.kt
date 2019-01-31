@@ -32,6 +32,10 @@ class ContactListActivity : AppCompatActivity(), ContactInterface.View {
         contato_list_recyclerview?.layoutManager = layoutManager
         contato_list_recyclerview.adapter = adapter
 
+        add_contato_pageTXT.setOnClickListener {
+            goToAddContactListActivity()
+        }
+
 //        getArgs()
     }
 
@@ -55,20 +59,25 @@ class ContactListActivity : AppCompatActivity(), ContactInterface.View {
         return this
     }
 
-    private fun updateList(){
+    private fun updateList() {
         AgendaDB.instance.contactDAO().getContacts()?.let {
             contactList.clear()
             contactList.addAll(it)
             adapter?.notifyDataSetChanged()
         }
+    }
+    private fun goToAddContactListActivity() {
+        val intent = Intent(this, AddContactActivity::class.java)
+//        startActivityForResult(intent, ADDCONTACT_CODE)
+        startActivity(intent)
+    }
 
 //        private fun updateList(){
 //            AgendaDB.instance.contactDAO().getContacts()?.let {
 //                contactList.addAll(it)
 //                adapter?.notifyDataSetChanged()
 //            }
-    }
-
+//    }
 //    private fun getArgs() {
 //        val contact_list = Cache.contactList
 //
