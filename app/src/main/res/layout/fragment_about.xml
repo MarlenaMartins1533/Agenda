@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_us"
+            android:gravity="center_horizontal"
+            android:textSize="45dp"
+            android:layout_margin="100dp"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Developed by Marlena Mota Martins
+Phone: (71) 99154-5496
+Linkedin: www.linkedin.com/marlenamartins"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:textStyle="bold"/>
+
+</RelativeLayout>

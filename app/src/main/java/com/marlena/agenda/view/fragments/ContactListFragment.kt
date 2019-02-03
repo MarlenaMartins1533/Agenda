@@ -1,42 +1,49 @@
-package com.marlena.agenda.view.activities
+package com.marlena.agenda.view.fragments
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.marlena.agenda.view.adapters.ContactAdapter
 import com.marlena.agenda.R
-import com.marlena.agenda.data.Cache
 import com.marlena.agenda.model.Contact
 import com.marlena.agenda.persistence.AgendaDB
+import com.marlena.agenda.view.activities.AddContactActivity
 import com.marlena.agenda.view.adapters.ContactInterface
-import kotlinx.android.synthetic.main.activity_contact_list.*
+import kotlinx.android.synthetic.main.fragment_contact_list.*
 
-class ContactListActivity : AppCompatActivity(), ContactInterface.View {
+class ContactListFragment : Fragment(), ContactInterface.View {
 
-//    companion object {
-//        const val CONTACTLIST_ARG = "contactlist_arg"
-//    }
+    companion object {
+        //const val CONTACTLIST_ARG = "contactlist_arg"
+        fun newInstance(): ContactListFragment {
+            return ContactListFragment()
+        }
+    }
 
     private val contactList = ArrayList<Contact>()
     private var adapter: ContactAdapter? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_contact_list)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_contact_list,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         adapter = ContactAdapter(contactList, this)
 
-        val layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(context)
         contato_list_recyclerview?.layoutManager = layoutManager
         contato_list_recyclerview.adapter = adapter
 
         add_contato_pageTXT.setOnClickListener {
             goToAddContactListActivity()
         }
-
-//        getArgs()
     }
 
     override fun onResume() {
@@ -49,15 +56,13 @@ class ContactListActivity : AppCompatActivity(), ContactInterface.View {
         contactList.removeAt(position)
         adapter?.notifyDataSetChanged()
     }
+
     override fun editContact(position: Int){
-        val intent = Intent(this, AddContactActivity::class.java)
+        val intent = Intent(context, AddContactActivity::class.java)
         intent.putExtra(AddContactActivity.OLDCONTACT_ARG, contactList[position])
         startActivity(intent)
     }
 
-    override fun getContext(): Context {
-        return this
-    }
 
     private fun updateList() {
         AgendaDB.instance.contactDAO().getContacts()?.let {
@@ -67,7 +72,7 @@ class ContactListActivity : AppCompatActivity(), ContactInterface.View {
         }
     }
     private fun goToAddContactListActivity() {
-        val intent = Intent(this, AddContactActivity::class.java)
+        val intent = Intent(context, AddContactActivity::class.java)
 //        startActivityForResult(intent, ADDCONTACT_CODE)
         startActivity(intent)
     }

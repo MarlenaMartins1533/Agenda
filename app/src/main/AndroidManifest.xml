@@ -12,19 +12,21 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <!--<activity-->
-                <!--android:name=".Main2Activity"-->
-                <!--android:label="@string/title_activity_main2"-->
-                <!--android:theme="@style/AppTheme.NoActionBar">-->
-        <!--</activity>-->
-        <activity android:name=".view.activities.ContactListActivity">
+        <activity
+                android:name=".MainActivity"
+                android:label="@string/title_activity_contact_list"
+                android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <!-- <activity -->
+        <!-- android:name=".Main2Activity" -->
+        <!-- android:label="@string/title_activity_main2" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar"> -->
+        <!-- </activity> -->
         <activity android:name=".view.activities.AddContactActivity"/>
     </application>
 
