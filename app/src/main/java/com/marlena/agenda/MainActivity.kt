@@ -1,5 +1,6 @@
 package com.marlena.agenda
 
+import android.content.Intent
 import android.support.design.widget.TabLayout
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.marlena.agenda.view.activities.AddContactActivity
 import com.marlena.agenda.view.fragments.AboutFragment
 import com.marlena.agenda.view.fragments.ContactListFragment
 
@@ -42,9 +44,11 @@ class MainActivity : AppCompatActivity() {
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener {
+            goToAddContactListActivity()
+//                view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
         }
 
     }
@@ -68,7 +72,6 @@ class MainActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
-
 
     /**
      * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -98,4 +101,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun goToAddContactListActivity() {
+        val intent = Intent(this, AddContactActivity::class.java)
+        startActivity(intent)
+    }
 }

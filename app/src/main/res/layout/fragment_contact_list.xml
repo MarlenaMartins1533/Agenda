@@ -9,15 +9,6 @@
         android:orientation="vertical"
         tools:context=".view.fragments.ContactListFragment">
 
-    <Button
-            android:id="@+id/add_contato_pageTXT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_contact"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:padding="10dp"/>
-
     <android.support.v7.widget.RecyclerView
             android:id="@+id/contato_list_recyclerview"
             android:layout_width="match_parent"

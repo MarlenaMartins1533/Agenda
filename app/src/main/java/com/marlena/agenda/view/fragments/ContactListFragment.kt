@@ -41,9 +41,9 @@ class ContactListFragment : Fragment(), ContactInterface.View {
         contato_list_recyclerview?.layoutManager = layoutManager
         contato_list_recyclerview.adapter = adapter
 
-        add_contato_pageTXT.setOnClickListener {
-            goToAddContactListActivity()
-        }
+//        add_contato_pageTXT.setOnClickListener {
+//            goToAddContactListActivity()
+//        }
     }
 
     override fun onResume() {
@@ -71,11 +71,11 @@ class ContactListFragment : Fragment(), ContactInterface.View {
             adapter?.notifyDataSetChanged()
         }
     }
-    private fun goToAddContactListActivity() {
-        val intent = Intent(context, AddContactActivity::class.java)
-//        startActivityForResult(intent, ADDCONTACT_CODE)
-        startActivity(intent)
-    }
+//    private fun goToAddContactListActivity() {
+//        val intent = Intent(context, AddContactActivity::class.java)
+////        startActivityForResult(intent, ADDCONTACT_CODE)
+//        startActivity(intent)
+//    }
 
 //        private fun updateList(){
 //            AgendaDB.instance.contactDAO().getContacts()?.let {
