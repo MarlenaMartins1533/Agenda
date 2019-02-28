@@ -9,7 +9,7 @@ import com.marlena.agenda.model.Contact
 @Database(entities = [Contact::class], version = 1)
 abstract class AgendaDB : RoomDatabase() {
 
-    companion object {
+    companion object { //singleton - only one instance
         lateinit var instance: AgendaDB
             private set
 

@@ -21,6 +21,6 @@ class Contact: Serializable{
     var seeDetais: Boolean = false
 
     fun getCompleteName(): String {
-        return name + surname
+        return "$name $surname"
     }
 }

@@ -1,4 +1,4 @@
-package com.marlena.agenda.view.adapters
+package com.marlena.agenda.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
@@ -11,7 +11,8 @@ import kotlinx.android.synthetic.main.item_contact.view.*
 
 
 class ContactAdapter (private val contacts: List<Contact>,
-                      private val contactView: ContactInterface.View) : Adapter<ContactAdapter.ViewHolder>() {
+                      private val contactView: ContactInterface.View
+) : Adapter<ContactAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 

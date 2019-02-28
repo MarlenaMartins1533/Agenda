@@ -1,4 +1,4 @@
-package com.marlena.agenda.view.adapters
+package com.marlena.agenda.adapters
 
 import android.content.Context
 
