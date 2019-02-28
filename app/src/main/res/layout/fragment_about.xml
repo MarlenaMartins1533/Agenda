@@ -3,12 +3,13 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:gravity="center_horizontal">
 
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_us"
+            android:text="@string/about_us1"
             android:gravity="center_horizontal"
             android:textSize="45dp"
             android:layout_margin="100dp"
@@ -17,11 +18,27 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Developed by Marlena Mota Martins
-Phone: (71) 99154-5496
-Linkedin: www.linkedin.com/marlenamartins"
+            android:text="@string/developer"
             android:gravity="center"
             android:textSize="17dp"
             android:textStyle="bold"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/phone_developer"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/linkedin_developer"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:textStyle="bold"/>
+
+
 
 </RelativeLayout>

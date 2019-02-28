@@ -15,5 +15,9 @@
     <string name="tab_text_2">About me</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="about_us">About me</string>
+    <string name="about_us1">About me</string>
+    <string name="developer">Developed by Marlena Mota Martins</string>
+    <string name="phone_developer">Phone: (71) 99154-5496</string>
+    <string name="linkedin_developer">Linkedin: www.linkedin.com/marlenamartins</string>
+
 </resources>

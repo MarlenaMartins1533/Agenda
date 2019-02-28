@@ -9,7 +9,7 @@
         android:gravity="center"
         android:padding="25dp"
         android:orientation="vertical"
-        tools:context=".view.activities.AddContactActivity">
+        tools:context=".scenes.addContact.AddContactActivity">
 
         <TextView
                 android:layout_width="wrap_content"
