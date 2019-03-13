@@ -9,6 +9,5 @@ interface ContactInterface {
         fun getContext(): Context?
     }
     interface Presenter {
-
     }
 }

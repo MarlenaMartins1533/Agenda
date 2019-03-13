@@ -26,25 +26,26 @@ class AddContactActivity : AppCompatActivity(), AddContact.View {
         oldContact = intent.getSerializableExtra(OLDCONTACT_ARG) as Contact?
 
         oldContact?.let {
-//            val contact = oldContact
-//            presenter.requestEdts(Contact)
-            name_contactEDT.setText(it.name)
-            phone_contactEDT.setText(it.phone)
-            age_contactEDT.setText(it.age)
-            surname_contactEDT.setText(it.surname)
+            oldContact = getEdts()
         }
+//            val contact = oldContact
+////          presenter.requestEdts(Contact)
+//            name_contactEDT.setText(it.name)
+//            phone_contactEDT.setText(it.phone)
+//            age_contactEDT.setText(it.age)
+//            surname_contactEDT.setText(it.surname)
 
         add_contactBTN.setOnClickListener {
             if (oldContact == null) {
 
-                val contact = Contact()
-
-                contact.name = name_contactEDT.text.toString()
-                contact.phone = phone_contactEDT.text.toString()
-                contact.age = age_contactEDT.text.toString()
-                contact.surname = surname_contactEDT.text.toString()
-
+                val contact = getEdts()
+//
+//                contact.name = name_contactEDT.text.toString()
+//                contact.phone = phone_contactEDT.text.toString()
+//                contact.age = age_contactEDT.text.toString()
+//                contact.surname = surname_contactEDT.text.toString()
 //                presenter.requestEdts(contact)
+
                 presenter.insertContact(contact)   //AgendaDB.instance.contactDAO().insert(contact)
                 presenter.requestMessage(contact)
 
@@ -52,18 +53,18 @@ class AddContactActivity : AppCompatActivity(), AddContact.View {
                 finish()
             }
             else {
-                val contact = Contact()
+                var contact = Contact()
 
                 oldContact?.let { //presenter
                     presenter.deleteContact(it)
                 }
-
-                contact.name = name_contactEDT.text.toString()
-                contact.phone = phone_contactEDT.text.toString()
-                contact.age = age_contactEDT.text.toString()
-                contact.surname = surname_contactEDT.text.toString()
-
-//                contact = presenter.requestEdts(contact)
+//
+//                contact.name = name_contactEDT.text.toString()
+//                contact.phone = phone_contactEDT.text.toString()
+//                contact.age = age_contactEDT.text.toString()
+//                contact.surname = surname_contactEDT.text.toString()
+//
+                contact = getEdts()
                 presenter.insertContact(contact)   //AgendaDB.instance.contactDAO().insert(contact)
                 presenter.requestMessage(contact)
 
@@ -74,17 +75,17 @@ class AddContactActivity : AppCompatActivity(), AddContact.View {
 
         }
 
-//    override fun getEdts(){
-//        val contact = Contact()
-//
-//        contact?.let {
-//            name_contactEDT.setText(it.name)
-//            phone_contactEDT.setText(it.phone)
-//            age_contactEDT.setText(it.age)
-//            surname_contactEDT.setText(it.surname)
-//        }
-//        return contact
-//    }
+    private fun getEdts(): Contact {
+        val contact = Contact()
+
+        contact.let {
+            name_contactEDT.setText(it.name)
+            phone_contactEDT.setText(it.phone)
+            age_contactEDT.setText(it.age)
+            surname_contactEDT.setText(it.surname)
+        }
+        return contact
+    }
 
     override fun showMessage(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()

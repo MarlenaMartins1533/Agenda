@@ -17,7 +17,16 @@ import com.marlena.agenda.scenes.addContact.AddContactActivity
 import com.marlena.agenda.adapters.ContactInterface
 import kotlinx.android.synthetic.main.fragment_contact_list.*
 
+
 class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View {
+
+
+    companion object {
+        //const val CONTACTLIST_ARG = "contactlist_arg"
+        fun newInstance(): ContactListFragment {
+            return ContactListFragment()
+        }
+    }
 
     private lateinit var presenter: ContactList.Presenter
     private val contactList = ArrayList<Contact>()
@@ -25,7 +34,6 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         presenter = ContactListPresenter(this)
     }
 
@@ -59,23 +67,16 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
         Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
     }
 
-    companion object {
-        //const val CONTACTLIST_ARG = "contactlist_arg"
-        fun newInstance(): ContactListFragment {
-            return ContactListFragment()
-        }
-    }
-
     override fun onResume() {
         super.onResume()
-        updateList()
+        presenter.updateList(adapter!!)
     }
 
-    override fun removeContact(position: Int){
-        AgendaDB.instance.contactDAO().delete(contactList[position])
-        contactList.removeAt(position)
-        adapter?.notifyDataSetChanged()
-    }
+//    override fun deleteContact(position: Int){
+//        AgendaDB.instance.contactDAO().delete(contactList[position])
+//        contactList.removeAt(position)
+//        adapter?.notifyDataSetChanged()
+//    }
 
     override fun editContact(position: Int){
         val intent = Intent(context, AddContactActivity::class.java)
@@ -83,13 +84,18 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
         startActivity(intent)
     }
 
+    override fun removeContact(position: Int) {
+        val position = position
+        presenter.deleteContact(position, adapter)
 
-    private fun updateList() {
-        AgendaDB.instance.contactDAO().getContacts()?.let {
-            contactList.clear()
-            contactList.addAll(it)
-            adapter?.notifyDataSetChanged()
-        }
+    }
+
+//    private fun updateList() {
+//        AgendaDB.instance.contactDAO().getContacts()?.let {
+//            contactList.clear()
+//            contactList.addAll(it)
+//            adapter?.notifyDataSetChanged()
+//        }
     }
 //    private fun goToAddContactListActivity() {
 //        val intent = Intent(context, AddContactActivity::class.java)
@@ -124,5 +130,4 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
 //                "Flavio",
 //                "99948-4822"
 //            ))
-//    }
-}
+//    } }
