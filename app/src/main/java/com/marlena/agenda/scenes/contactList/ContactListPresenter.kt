@@ -12,15 +12,15 @@ class ContactListPresenter (val view: ContactList.View): ContactList.Presenter {
     }
 
     override fun updateList(adapter: ContactAdapter) {
-        AgendaDB.instance.contactDAO().getContacts()?.let {
+        AgendaDB.instance.contactDAO().getContacts().let {
             Cache.contactList.clear()
             contactList.addAll(it)
             adapter.notifyDataSetChanged()
         }
     }
-    override fun deleteContact(position: Int, adapter: ContactAdapter) {
-        AgendaDB.instance.contactDAO().delete(Cache.contactList[position])
-        contactList.removeAt(position)
-        adapter.notifyDataSetChanged()
+    override fun deleteContact(position: Int, adapter: ContactAdapter?) {
+        AgendaDB.instance.contactDAO().delete(Cache.contactList!![position])
+        contactList!!.removeAt(position)
+        adapter!!.notifyDataSetChanged()
     }
 }

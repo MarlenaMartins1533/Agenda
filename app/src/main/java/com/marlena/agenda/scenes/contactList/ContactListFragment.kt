@@ -12,7 +12,6 @@ import android.widget.Toast
 import com.marlena.agenda.adapters.ContactAdapter
 import com.marlena.agenda.R
 import com.marlena.agenda.model.Contact
-import com.marlena.agenda.persistence.AgendaDB
 import com.marlena.agenda.scenes.addContact.AddContactActivity
 import com.marlena.agenda.adapters.ContactInterface
 import kotlinx.android.synthetic.main.fragment_contact_list.*
@@ -69,7 +68,7 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
 
     override fun onResume() {
         super.onResume()
-        presenter.updateList(adapter!!)
+        presenter.updateList(adapter)
     }
 
 //    override fun deleteContact(position: Int){
