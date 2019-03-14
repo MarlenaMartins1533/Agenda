@@ -68,7 +68,8 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
 
     override fun onResume() {
         super.onResume()
-        presenter.updateList(adapter)
+        presenter.updateList()
+        adapter?.notifyDataSetChanged()
     }
 
 //    override fun deleteContact(position: Int){
@@ -85,8 +86,8 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
 
     override fun removeContact(position: Int) {
         val position = position
-        presenter.deleteContact(position, adapter)
-
+        presenter.deleteContact(position)
+        adapter?.notifyDataSetChanged()
     }
 
 //    private fun updateList() {
