@@ -38,12 +38,13 @@ class AddContactActivity : AppCompatActivity(), AddContact.View {
         add_contactBTN.setOnClickListener {
             if (oldContact == null) {
 
-                val contact = getEdts()
-//
-//                contact.name = name_contactEDT.text.toString()
-//                contact.phone = phone_contactEDT.text.toString()
-//                contact.age = age_contactEDT.text.toString()
-//                contact.surname = surname_contactEDT.text.toString()
+//                val contact = getEdts()
+                var contact = Contact()
+
+                contact.name = name_contactEDT.text.toString()
+                contact.phone = phone_contactEDT.text.toString()
+                contact.age = age_contactEDT.text.toString()
+                contact.surname = surname_contactEDT.text.toString()
 //                presenter.requestEdts(contact)
 
                 presenter.insertContact(contact)   //AgendaDB.instance.contactDAO().insert(contact)

@@ -10,7 +10,7 @@ interface ContactList {
 
     interface Presenter: Scene.Presenter {
         fun requestMessage()
-        fun deleteContact(position: Int)
         fun updateList()
+        fun deleteContact(position: Int)
     }
 }
