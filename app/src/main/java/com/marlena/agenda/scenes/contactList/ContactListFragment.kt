@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_contact_list.*
 
 
 class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View {
-    
+
     companion object {
         //const val CONTACTLIST_ARG = "contactlist_arg"
         fun newInstance(): ContactListFragment {
@@ -81,6 +81,11 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
     override fun removeContact(contact: Contact) {
         presenter.deleteContact(contact)
         presenter.getList()
+    }
+
+    override fun onDestroy() {
+        presenter.kill()
+        super.onDestroy()
     }
 }
 //    private fun goToAddContactListActivity() {

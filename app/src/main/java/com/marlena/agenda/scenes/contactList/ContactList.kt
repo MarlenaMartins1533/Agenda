@@ -14,5 +14,6 @@ interface ContactList {
         fun requestMessage()
         fun getList()
         fun deleteContact(contact: Contact)
+        fun kill()
     }
 }

@@ -9,5 +9,6 @@ class App: Application() {
         super.onCreate()
 
         AgendaDB.initialize(this)
+
     }
 }

@@ -15,19 +15,21 @@ class ContactListPresenter (val view: ContactList.View): ContactList.Presenter, 
     }
 
     override fun getList(){
-        launch {
+        job = launch {
             val contactList = ArrayList<Contact>()
 
             withContext(Dispatchers.IO){
-                AgendaDB.instance.contactDAO().getContacts()?.let {
-                    contactList.addAll(it)
-                }
+                AgendaDB.instance.contactDAO().getContacts()?.let { contactList.addAll(it) }
             }
             view.setList(contactList)
         }
     }
 
     override fun deleteContact(contact: Contact) {
-        launch (Dispatchers.IO){ AgendaDB.instance.contactDAO().delete(contact) }
+        job = launch (Dispatchers.IO){ AgendaDB.instance.contactDAO().delete(contact) }
+    }
+
+    override fun kill(){
+        job?.cancel()
     }
 }
