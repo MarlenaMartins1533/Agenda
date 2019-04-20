@@ -28,7 +28,7 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
     }
 
     private lateinit var presenter: ContactList.Presenter
-    private val contactList = ArrayList<Contact>()
+    private val contactList: MutableList<Contact> by lazy { mutableListOf<Contact>() }
     private var adapter: ContactAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +68,8 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
 
     override fun onResume() {
         super.onResume()
-        presenter.updateList()
+        contactList.clear()
+        contactList.addAll(presenter.getList())
         adapter?.notifyDataSetChanged()
     }
 
@@ -84,13 +85,14 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
         startActivity(intent)
     }
 
-    override fun removeContact(position: Int) {
-        val position = position
-        presenter.deleteContact(position)
+    override fun removeContact(contact: Contact) {
+        presenter.deleteContact(contact)
+        contactList.clear()
+        contactList.addAll(presenter.getList())
         adapter?.notifyDataSetChanged()
     }
 
-//    private fun updateList() {
+//    private fun getList() {
 //        AgendaDB.instance.contactDAO().getContacts()?.let {
 //            contactList.clear()
 //            contactList.addAll(it)
@@ -103,7 +105,7 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
 //        startActivity(intent)
 //    }
 
-//        private fun updateList(){
+//        private fun getList(){
 //            AgendaDB.instance.contactDAO().getContacts()?.let {
 //                contactList.addAll(it)
 //                adapter?.notifyDataSetChanged()

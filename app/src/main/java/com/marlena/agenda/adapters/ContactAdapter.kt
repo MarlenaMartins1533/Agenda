@@ -38,7 +38,7 @@ class ContactAdapter (private val contacts: List<Contact>,
             itemView.contact_surnameTXT.text = contact.surname
 
             itemView.delete_contactBTN.setOnClickListener{
-                contactView.removeContact(position)
+                contactView.removeContact(contact)
             }
 
             itemView.edit_contactBTN.setOnClickListener{

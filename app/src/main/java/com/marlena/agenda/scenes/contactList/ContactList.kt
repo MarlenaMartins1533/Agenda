@@ -1,6 +1,7 @@
 package com.marlena.agenda.scenes.contactList
 
 import com.marlena.agenda.adapters.ContactAdapter
+import com.marlena.agenda.model.Contact
 import com.marlena.agenda.scenes.Scene
 
 interface ContactList {
@@ -10,7 +11,7 @@ interface ContactList {
 
     interface Presenter: Scene.Presenter {
         fun requestMessage()
-        fun updateList()
-        fun deleteContact(position: Int)
+        fun getList(): ArrayList<Contact>
+        fun deleteContact(contact: Contact)
     }
 }

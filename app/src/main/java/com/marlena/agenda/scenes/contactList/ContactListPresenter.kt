@@ -2,8 +2,7 @@ package com.marlena.agenda.scenes.contactList
 
 import com.marlena.agenda.adapters.ContactAdapter
 import com.marlena.agenda.persistence.AgendaDB
-import com.marlena.agenda.data.Cache
-import com.marlena.agenda.data.Cache.Companion.contactList
+import com.marlena.agenda.model.Contact
 
 class ContactListPresenter (val view: ContactList.View): ContactList.Presenter {
 
@@ -11,16 +10,15 @@ class ContactListPresenter (val view: ContactList.View): ContactList.Presenter {
         view.showMessage("Message!")
     }
 
-    override fun updateList() {
+    override fun getList(): ArrayList<Contact> {
+        val contactList = ArrayList<Contact>()
+
         AgendaDB.instance.contactDAO().getContacts()?.let {
-            Cache.contactList?.clear()
-            Cache.contactList?.addAll(it)
+            contactList.addAll(it)
         }
+        return contactList
     }
-    override fun deleteContact(position: Int) {
-        Cache.contactList?.get(position)?.let {
-            AgendaDB.instance.contactDAO().delete(it)
-            Cache.contactList?.removeAt(position)
-        }
+    override fun deleteContact(contact: Contact) {
+        AgendaDB.instance.contactDAO().delete(contact)
     }
 }
