@@ -4,6 +4,5 @@ import com.marlena.agenda.model.Contact
 
 class Cache {
     companion object {
-        var contactList: ArrayList<Contact>? = null
     }
 }
