@@ -1,10 +1,7 @@
 package com.marlena.agenda.service
 
-import android.arch.persistence.room.Room
-import android.content.Context
 import android.util.Log
-import com.marlena.agenda.data.Cache
-import com.marlena.agenda.model.Contact
+import com.marlena.agenda.data.Constants
 import com.marlena.agenda.model.WeatherResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -19,7 +16,7 @@ class WeatherClient {
         fun initialize() {
             instance = WeatherClient()
             instance.retrofit = Retrofit.Builder()
-                .baseUrl(Cache.BaseUrl)
+                .baseUrl(Constants.BaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(WeatherApi::class.java)
@@ -29,7 +26,7 @@ class WeatherClient {
     private lateinit var retrofit: WeatherApi
 
     fun getCurrentWeatherData(lat: String, lon: String): WeatherResponse? {
-        val call = retrofit.getCurrentWeatherData(lat, lon, Cache.AppId)
+        val call = retrofit.getCurrentWeatherData(lat, lon, Constants.AppId)
         try {
             val response = call.execute()
             if (response.isSuccessful) {
