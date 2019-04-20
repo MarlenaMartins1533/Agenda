@@ -18,8 +18,7 @@ import kotlinx.android.synthetic.main.fragment_contact_list.*
 
 
 class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View {
-
-
+    
     companion object {
         //const val CONTACTLIST_ARG = "contactlist_arg"
         fun newInstance(): ContactListFragment {
@@ -48,10 +47,6 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
         val layoutManager = LinearLayoutManager(context)
         contato_list_recyclerview?.layoutManager = layoutManager
         contato_list_recyclerview.adapter = adapter
-
-//        add_contato_pageTXT.setOnClickListener {
-//            goToAddContactListActivity()
-//        }
     }
 
     override fun showMessage(message: String) {
@@ -76,11 +71,6 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
         this.contactList.addAll(contactList)
         adapter?.notifyDataSetChanged()
     }
-//    override fun deleteContact(position: Int){
-//        AgendaDB.instance.contactDAO().delete(contactList[position])
-//        contactList.removeAt(position)
-//        adapter?.notifyDataSetChanged()
-//    }
 
     override fun editContact(position: Int){
         val intent = Intent(context, AddContactActivity::class.java)
@@ -92,45 +82,9 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
         presenter.deleteContact(contact)
         presenter.getList()
     }
-
-//    private fun getList() {
-//        AgendaDB.instance.contactDAO().getContacts()?.let {
-//            contactList.clear()
-//            contactList.addAll(it)
-//            adapter?.notifyDataSetChanged()
-//        }
-    }
+}
 //    private fun goToAddContactListActivity() {
 //        val intent = Intent(context, AddContactActivity::class.java)
 ////        startActivityForResult(intent, ADDCONTACT_CODE)
 //        startActivity(intent)
 //    }
-
-//        private fun getList(){
-//            AgendaDB.instance.contactDAO().getContacts()?.let {
-//                contactList.addAll(it)
-//                adapter?.notifyDataSetChanged()
-//            }
-//    }
-//    private fun getArgs() {
-//        val contact_list = Cache.contactList
-//
-//        contact_list?.let { contactList.addAll(it) }
-//        adapter?.notifyDataSetChanged()
-//    }
-
-//    private fun getContacts(): List<Contact>{
-//        return listOf(
-//            Contact(
-//                "Marlena",
-//                "99154-5496"
-//            ),
-//            Contact(
-//                "Mario",
-//                "3391-3397"
-//            ),
-//            Contact(
-//                "Flavio",
-//                "99948-4822"
-//            ))
-//    } }

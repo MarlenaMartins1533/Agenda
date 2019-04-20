@@ -13,7 +13,7 @@ interface AddContact{
         fun insertContact(contact: Contact)
         fun deleteContact(contact: Contact)
 //        fun requestEdts(contact: Contact)
-        fun requestMessage(contact: Contact)
+        fun showMessage(contact: Contact)
 
     }
 }

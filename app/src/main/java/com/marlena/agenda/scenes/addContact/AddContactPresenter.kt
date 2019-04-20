@@ -5,15 +5,10 @@ import com.marlena.agenda.persistence.AgendaDB
 
 class AddContactPresenter(val view: AddContact.View): AddContact.Presenter  {
 
-    override fun requestMessage(contact: Contact) {
+    override fun showMessage(contact: Contact) {
         val name = contact.name
         view.showMessage("$name added successfully!")
     }
-
-//    override fun requestEdts() {
-//        val contact = Contact()
-//        contact = view.getEdts()
-//    }
 
     override fun insertContact(contact: Contact) {
         AgendaDB.instance.contactDAO().insert(contact)
