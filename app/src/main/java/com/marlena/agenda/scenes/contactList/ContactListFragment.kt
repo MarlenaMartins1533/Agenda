@@ -68,11 +68,14 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
 
     override fun onResume() {
         super.onResume()
-        contactList.clear()
-        contactList.addAll(presenter.getList())
-        adapter?.notifyDataSetChanged()
+        presenter.getList()
     }
 
+    override fun setList(contactList: ArrayList<Contact>) {
+        this.contactList.clear()
+        this.contactList.addAll(contactList)
+        adapter?.notifyDataSetChanged()
+    }
 //    override fun deleteContact(position: Int){
 //        AgendaDB.instance.contactDAO().delete(contactList[position])
 //        contactList.removeAt(position)
@@ -87,9 +90,7 @@ class ContactListFragment : Fragment(), ContactInterface.View, ContactList.View 
 
     override fun removeContact(contact: Contact) {
         presenter.deleteContact(contact)
-        contactList.clear()
-        contactList.addAll(presenter.getList())
-        adapter?.notifyDataSetChanged()
+        presenter.getList()
     }
 
 //    private fun getList() {

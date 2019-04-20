@@ -7,11 +7,12 @@ import com.marlena.agenda.scenes.Scene
 interface ContactList {
     interface View: Scene.View {
         fun showMessage(message: String)
+        fun setList(contactList: ArrayList<Contact>)
     }
 
     interface Presenter: Scene.Presenter {
         fun requestMessage()
-        fun getList(): ArrayList<Contact>
+        fun getList()
         fun deleteContact(contact: Contact)
     }
 }
