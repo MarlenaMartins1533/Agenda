@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.marlena.agenda.R
-import kotlin.concurrent.thread
+import kotlinx.android.synthetic.main.fragment_about.*
 
 class AboutFragment: Fragment (), About.View {
 
@@ -23,6 +23,11 @@ class AboutFragment: Fragment (), About.View {
         super.onCreate(savedInstanceState)
 
         presenter = AboutPresenter(this)
+
+        weather.setOnClickListener {
+            val response = presenter.getWeather()
+            showMessage(response)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

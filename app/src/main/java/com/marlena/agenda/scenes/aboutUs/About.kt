@@ -8,6 +8,8 @@ interface About{
     }
 
     interface Presenter: Scene.Presenter {
+        fun getWeather()
         fun requestMessage()
+        fun kill()
     }
 }

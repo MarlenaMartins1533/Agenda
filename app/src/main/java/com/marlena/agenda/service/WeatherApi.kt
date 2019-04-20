@@ -1,6 +1,7 @@
 package com.marlena.agenda.service
 
-import android.telecom.Call
+import com.marlena.agenda.model.WeatherResponse
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
