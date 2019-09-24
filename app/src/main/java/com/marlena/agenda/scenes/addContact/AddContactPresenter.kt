@@ -5,7 +5,7 @@ import com.marlena.agenda.persistence.AgendaDB
 
 class AddContactPresenter(val view: AddContact.View): AddContact.Presenter  {
 
-    override fun showMessage(contact: Contact) {
+    override fun requestMessage(contact: Contact) {
         val name = contact.name
         view.showMessage("$name added successfully!")
     }

@@ -30,8 +30,13 @@ class AddContactActivity : AppCompatActivity(), AddContact.View {
             if (oldContact == null) { //create new contact
                 val contact = getEdts()
 
-                presenter.insertContact(contact)
-                presenter.showMessage(contact)
+
+                try {
+                    presenter.insertContact(contact)
+                    presenter.requestMessage(contact)
+                }
+                catch (e:Exception){ showMessage("Contact already exists") }
+
                 finish()
             }
             else { //contact edition
@@ -40,7 +45,7 @@ class AddContactActivity : AppCompatActivity(), AddContact.View {
                 oldContact?.let { old -> presenter.deleteContact(old) }
 
                 presenter.insertContact(contact)
-                presenter.showMessage(contact)
+                presenter.requestMessage(contact)
                 finish()
             }
         }

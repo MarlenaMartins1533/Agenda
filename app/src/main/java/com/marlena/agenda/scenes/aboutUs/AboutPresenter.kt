@@ -17,7 +17,7 @@ class AboutPresenter(val view: About.View): About.Presenter, CoroutineScope {
             val lat = "-12.9704"
             val long = "-38.5124"
 
-            val bodyWeather = withContext(Dispatchers.IO){ WeatherClient.instance.getCurrentWeatherData(lat, long) }
+            val bodyWeather = withContext(Dispatchers.IO){ WeatherClient.instance.getCurrentWeatherData(lat, long) } //if withContext has problem about suspend something, then need job=launch
             val response = "Weather today ${bodyWeather?.name}"
 
             view.showMessage(response)
